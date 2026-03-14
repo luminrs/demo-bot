@@ -1,4 +1,5 @@
 import os
+import random
 import discord
 from discord.ext import commands
 
@@ -22,6 +23,11 @@ async def ping(ctx):
 async def status(ctx):
     latency = round(bot.latency * 1000)
     await ctx.send(f"Bot latency: {latency}ms")
+
+
+@bot.command()
+async def roll(ctx):
+    await ctx.send(f"You rolled a {random.randint(1, 6)}")
 
 
 bot.run(os.environ["DISCORD_TOKEN"])
